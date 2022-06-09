@@ -17,7 +17,7 @@ jobs:
             echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssha/id_rsa
             sudo chmod 600 ~/.ssha/id_rsa
       - name: Git config
-        run: |
+        uses: |
           git config --global user.email "cd-user@my-app.com"
           git config --global user.name "cd-user"
       - name: Install
@@ -25,4 +25,4 @@ jobs:
       - name: Build
         run: npm run build
       - name: Deploy
-        run: npm run deploy
+        run: npm run deploy -- -r git@github.com:javimrdev/practica_cloud.git
