@@ -11,7 +11,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: |
+      - name: Use SSH key
+        uses: |
             mkdir -p ~/.ssh/
             echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssha/id_rsa
             sudo chmod 600 ~/.ssha/id_rsa
