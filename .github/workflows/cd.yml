@@ -25,4 +25,4 @@ jobs:
       - name: Build
         run: npm run build
       - name: Deploy
-        run: npm run deploy -- -r git@github.com:javimrdev/practica_cloud.git
+        run: npm run deploy -- -r git@github.com:javimrdev/practica_cloud_automatica.git
