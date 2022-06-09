@@ -11,6 +11,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: |
+            mkdir -p ~/.ssh/
+            echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssha/id_rsa
+            sudo chmod 600 ~/.ssha/id_rsa
+      - name: Git config
+        run: |
+          git config --global user.email "cd-user@my-app.com"
+          git config --global user.name "cd-user"
       - name: Install
         run: npm ci
       - name: Build
